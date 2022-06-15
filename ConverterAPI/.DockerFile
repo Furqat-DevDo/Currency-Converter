@@ -1,0 +1,1 @@
+FROM Microsoft.NET.Sdk.Web
