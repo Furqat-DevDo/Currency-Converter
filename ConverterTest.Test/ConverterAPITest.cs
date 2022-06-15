@@ -1,6 +1,6 @@
 namespace ConverterTest.Test;
 
-public class UnitTest1
+public class ConverterApiTest
 {
     [Fact]
     public void Test1()
