@@ -91,7 +91,9 @@ namespace CurrencyConverter.Helpers
         private static string GetResponse(string url)
         {
             string jsonString;
-
+            // var myClient = new HttpClient(new HttpClientHandler() { UseDefaultCredentials = true });
+            // var response = await myClient.GetAsync("website.com");
+            // var streamResponse = await response.Content.ReadAsStreamAsync();
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.AutomaticDecompression = DecompressionMethods.GZip;
 
