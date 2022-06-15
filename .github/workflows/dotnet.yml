@@ -1,21 +1,22 @@
-name: .NET
+name: ConverterApp Build Test
 
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+ 
 
 jobs:
-  build:
+  build-test:
     runs-on: self-hosted
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET
+    - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
+    - name: Publish ConverterApp
+      run: dotnet publish -o $GITHUB_WORKSPACE/bin/publish
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
