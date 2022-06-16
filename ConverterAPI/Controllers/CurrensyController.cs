@@ -7,6 +7,10 @@ namespace ConverterAPI.Controllers
     [ApiController]
     public class CurrensyController:Controller
     {
-        
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok();
+        }
     }
 }
