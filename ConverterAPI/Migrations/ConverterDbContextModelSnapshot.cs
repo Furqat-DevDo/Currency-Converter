@@ -2,6 +2,8 @@
 using ConverterAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
@@ -58,25 +60,6 @@ namespace ConverterAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Currencies");
-                });
-
-            modelBuilder.Entity("CurrencyConverter.Models.CurrencyHistory", b =>
-                {
-                    b.Property<string>("ID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("CurrencyId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Date")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("ExchangeRate")
-                        .HasColumnType("float");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("CurrencyHistories");
                 });
 #pragma warning restore 612, 618
         }

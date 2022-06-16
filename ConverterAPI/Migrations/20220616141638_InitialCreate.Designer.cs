@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConverterAPI.Migrations
 {
     [DbContext(typeof(ConverterDbContext))]
-    [Migration("20220616113054_InitialCreate")]
+    [Migration("20220616141638_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,25 +62,6 @@ namespace ConverterAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Currencies");
-                });
-
-            modelBuilder.Entity("CurrencyConverter.Models.CurrencyHistory", b =>
-                {
-                    b.Property<string>("ID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("CurrencyId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Date")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("ExchangeRate")
-                        .HasColumnType("float");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("CurrencyHistories");
                 });
 #pragma warning restore 612, 618
         }
