@@ -1,13 +1,13 @@
 ﻿using ConverterAPI.Data;
 using CurrencyConverter.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Web.Mvc;
+
 
 namespace ConverterAPI.Services
 {
-    public class CurrencyDbService:IGenericService<Currency>
+    public class CurrencyDbService:ICurrencyService
     {
-        private readonly ConverterDbContext _context;
+        public readonly ConverterDbContext _context;
 
         public CurrencyDbService(ConverterDbContext dbcontext)
         {
@@ -23,6 +23,15 @@ namespace ConverterAPI.Services
             _context.Currencies.Add(entity);
             _context.SaveChanges();
             return Task.CompletedTask;
+        }
+        
+        public Task<bool> CheckIfExsist(string id)
+        {
+            if (id == null)
+            {
+                throw new ArgumentNullException(nameof(id));
+            }
+            return _context.Currencies.AnyAsync(e => e.Id == id);
         }
 
         public Task Delete(string id)

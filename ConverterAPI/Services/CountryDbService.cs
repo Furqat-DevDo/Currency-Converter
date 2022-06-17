@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ConverterAPI.Services
 {
-    public class CountryDbService : IGenericService<Country>
+    public class CountryDbService : ICountryService
     {
         private readonly ConverterDbContext _context;
         public CountryDbService(ConverterDbContext context)
@@ -62,5 +62,6 @@ namespace ConverterAPI.Services
             entityToUpdate.CurrencyId = entity.CurrencyId;
             return _context.SaveChangesAsync();
         }
+       
     }
 }
